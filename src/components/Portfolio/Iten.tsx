@@ -1,9 +1,18 @@
 import React from 'react';
 
-import TwitterImg from '../../assets/twitterimg.png'
 import { Flex, Box, Img } from '@chakra-ui/react';
 
-export const Iten: React.FC = () => {
+interface ProductProps {
+  product: {
+    description: string;
+    name: string;
+    image: string;
+    repoLink: string;
+    tools: string[];
+  };
+}
+
+export const Iten: React.FC<ProductProps> = ({product}) => {
   return (
     <Flex 
       direction="column"
@@ -20,7 +29,7 @@ export const Iten: React.FC = () => {
         borderRadius="0.5rem 0.5rem 0 0"
         p="0.5rem"
       >
-       Twitter Clone
+       {product.name}
       </Box>
 
       <Flex
@@ -36,7 +45,7 @@ export const Iten: React.FC = () => {
           borderColor: "purple.600",
         }}
       >
-        <Img src={TwitterImg} alt="Twitter Image"/>
+        <Img src={product.image} alt="Twitter Image"/>
       </Flex>
     </Flex>
   );

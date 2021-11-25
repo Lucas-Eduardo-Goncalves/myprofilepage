@@ -3,8 +3,20 @@ import React from 'react';
 import { Flex, Heading, Text, SimpleGrid } from '@chakra-ui/react';
 
 import { Iten } from './Iten';
+import { useCollection } from '@nandorojo/swr-firestore';
+
+interface DataProps {
+  description: string;
+  name: string;
+  image: string;
+  repoLink: string;
+  tools: string[];
+}
 
 export const Portfolio: React.FC = () => {
+
+  const { data } = useCollection<DataProps>('projects', {listen: true});
+
   return (
     <Flex
       id="portfolio"
@@ -30,8 +42,9 @@ export const Portfolio: React.FC = () => {
         minChildWidth="20rem"
         gap="5"
       >
-        <Iten />  
-        <Iten />
+        {data?.map(project => (
+          <Iten product={project}/> 
+        ))}
       </SimpleGrid>
       
     </Flex>

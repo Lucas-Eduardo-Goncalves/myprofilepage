@@ -4,12 +4,12 @@ import { Flex, Icon, Text } from '@chakra-ui/react';
 import { Link } from "react-scroll";
 
 interface LinkButtonProps {
-  name: string;
+  name?: string;
   icon: React.ElementType;
   as: string;
 }
 
-const LinkButtonComponente: React.FC<LinkButtonProps> = ({ icon, name, as }) => {
+const LinkButtonComponente: React.FC<LinkButtonProps> = ({ icon, name = '', as }) => {
   return (
     <Flex
       as={Link}

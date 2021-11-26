@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Flex } from '@chakra-ui/react';
+import { Flex, useMediaQuery  } from '@chakra-ui/react';
 
 import { LinkButton } from './LinkButton';
 
@@ -10,7 +10,10 @@ import { GoRepoForked } from 'react-icons/go';
 
 export const SideBar: React.FC = () => {
 
-  return (
+  const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
+
+  if(isLargerThan800) {
+    return (
     <Flex 
       position="fixed"
       as="nav"
@@ -52,5 +55,42 @@ export const SideBar: React.FC = () => {
         icon={GoRepoForked}
       />
     </Flex>
-  );
+    )
+  } else {
+    return (
+      <Flex 
+        position="fixed"
+        as="nav"
+        bottom="0"
+        align="center"
+        justify="center"
+        
+        bg="purple.800"
+        w="100vw"
+        h="4rem"
+        transition="width 0.3s"
+        zIndex="2"
+      >
+        <LinkButton
+          as="home"
+          icon={ImHome}
+        />
+
+        <LinkButton
+          as="portfolio"
+          icon={FaCode}
+        />
+
+        <LinkButton
+          as="about"
+          icon={FaQuestionCircle}
+        />
+
+        <LinkButton
+          as="repostats"
+          icon={GoRepoForked}
+        />
+      </Flex>
+    );
+  }
 };

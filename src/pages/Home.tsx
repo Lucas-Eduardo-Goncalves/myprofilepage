@@ -6,15 +6,18 @@ import { Portfolio } from '../components/Portfolio';
 import { About } from '../components/About';
 import { MyRepo } from '../components/MyRepo';
 
-import { Stack } from '@chakra-ui/react';
+import { Stack, useMediaQuery } from '@chakra-ui/react';
 
 export const Home: React.FC = () => {
+
+  const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
+
   return (
     <>
       <SideBar />
 
       <Stack
-        p="0 1rem 1rem 5rem"
+        p={!isLargerThan800 ? "1rem" : "0 1rem 1rem 5rem"} 
         spacing="5rem"
 
       >

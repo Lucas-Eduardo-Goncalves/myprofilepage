@@ -21,7 +21,7 @@ export const Portfolio: React.FC = () => {
     <Flex
       id="portfolio"
       direction="column"
-      h="100vh"
+      minH="100vh"
     >
       <Heading 
         color="purple.300"
@@ -43,7 +43,7 @@ export const Portfolio: React.FC = () => {
         gap="5"
       >
         {data?.map(project => (
-          <Iten product={project}/> 
+          <Iten key={project.id} product={project}/> 
         ))}
       </SimpleGrid>
       

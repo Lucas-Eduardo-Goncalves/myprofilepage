@@ -1,12 +1,16 @@
 import React from 'react';
 
-import { Flex } from '@chakra-ui/react';
+import { Flex, useMediaQuery } from '@chakra-ui/react';
 
 import { Block } from './Block';
 
 export const AreaBlock: React.FC = () => {
+  
+  const [isLargerThan1010] = useMediaQuery("(min-width: 1010px)")
+
   return (
     <Flex
+      display={!isLargerThan1010 ? 'none' : ''}
       direction="column"
       position="relative"
       w="20rem"

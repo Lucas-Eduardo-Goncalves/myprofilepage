@@ -1,6 +1,8 @@
 import React from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 
+import DancingLines from 'react-dancing-lines';
+
 import Fuego from './services/swr-firestore';
 import { FuegoProvider } from '@nandorojo/swr-firestore'
 import { firebaseConfig } from './services/firebase';
@@ -15,6 +17,8 @@ export const App: React.FC = () => {
 
   return (
     <FuegoProvider fuego={fuego}>
+      <DancingLines />
+      
       <ChakraProvider theme={theme}>
         <Home />
       </ChakraProvider>

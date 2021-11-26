@@ -5,6 +5,7 @@ import { Header } from '../components/Header';
 import { Portfolio } from '../components/Portfolio';
 import { About } from '../components/About';
 import { MyRepo } from '../components/MyRepo';
+import { ContactMe } from '../components/ContactMe';
 
 import { Stack, useMediaQuery } from '@chakra-ui/react';
 
@@ -18,13 +19,14 @@ export const Home: React.FC = () => {
 
       <Stack
         p={!isLargerThan800 ? "1rem" : "0 1rem 1rem 5rem"} 
-        spacing="5rem"
+        spacing="10rem"
 
       >
         <Header />
         <Portfolio  />
         <About />
         <MyRepo />
+        <ContactMe />
       </Stack>
     </>
   );

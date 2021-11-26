@@ -7,7 +7,6 @@ export const MyRepo: React.FC = () => {
     <Flex
       id="repostats"
       direction="column"
-      minH="100vh"
     >
       <Heading 
         color="purple.300"  

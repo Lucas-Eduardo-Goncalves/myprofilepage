@@ -10,7 +10,6 @@ export const About: React.FC = () => {
     <Flex
       id="about"
       direction="column"
-      h="100vh"
       maxW="50rem"
     >
       <Heading 

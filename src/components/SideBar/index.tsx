@@ -7,6 +7,7 @@ import { LinkButton } from './LinkButton';
 import { ImHome } from 'react-icons/im';
 import { FaCode, FaQuestionCircle } from 'react-icons/fa';
 import { GoRepoForked } from 'react-icons/go';
+import { MdOutlineContactMail } from 'react-icons/md';
 
 export const SideBar: React.FC = () => {
 
@@ -54,6 +55,12 @@ export const SideBar: React.FC = () => {
         as="repostats"
         icon={GoRepoForked}
       />
+
+      <LinkButton
+        name="Contact"
+        as="contact"
+        icon={MdOutlineContactMail}
+      />
     </Flex>
     )
   } else {
@@ -89,6 +96,11 @@ export const SideBar: React.FC = () => {
         <LinkButton
           as="repostats"
           icon={GoRepoForked}
+        />
+
+        <LinkButton
+          as="contact"
+          icon={MdOutlineContactMail}
         />
       </Flex>
     );

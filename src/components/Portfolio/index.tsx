@@ -21,7 +21,6 @@ export const Portfolio: React.FC = () => {
     <Flex
       id="portfolio"
       direction="column"
-      minH="100vh"
     >
       <Heading 
         color="purple.300"

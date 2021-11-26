@@ -22,6 +22,8 @@ export const About: React.FC = () => {
 
       <PText />
       <Footer />
+
+      
     </Flex>
   );
 };

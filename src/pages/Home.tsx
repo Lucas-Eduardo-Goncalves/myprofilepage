@@ -4,6 +4,7 @@ import { SideBar } from '../components/SideBar';
 import { Header } from '../components/Header';
 import { Portfolio } from '../components/Portfolio';
 import { About } from '../components/About';
+import { MyRepo } from '../components/MyRepo';
 
 import { Stack } from '@chakra-ui/react';
 
@@ -20,6 +21,7 @@ export const Home: React.FC = () => {
         <Header />
         <Portfolio  />
         <About />
+        <MyRepo />
       </Stack>
     </>
   );

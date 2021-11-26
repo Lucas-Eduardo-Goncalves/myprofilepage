@@ -6,7 +6,7 @@ import { LinkButton } from './LinkButton';
 
 import { ImHome } from 'react-icons/im';
 import { FaCode, FaQuestionCircle } from 'react-icons/fa';
-import { IoChatboxEllipses } from 'react-icons/io5';
+import { GoRepoForked } from 'react-icons/go';
 
 export const SideBar: React.FC = () => {
 
@@ -47,9 +47,9 @@ export const SideBar: React.FC = () => {
       />
 
       <LinkButton
-        name="Contact"
-        as="contact"
-        icon={IoChatboxEllipses}
+        name="RepoStats"
+        as="repostats"
+        icon={GoRepoForked}
       />
     </Flex>
   );

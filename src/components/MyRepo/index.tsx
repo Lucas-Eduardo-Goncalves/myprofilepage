@@ -18,6 +18,7 @@ export const MyRepo: React.FC = () => {
 
       <Flex
         align="center"
+        wrap="wrap"
         justify="space-evenly"
         mt="2rem" 
       >

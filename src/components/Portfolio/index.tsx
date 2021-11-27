@@ -10,6 +10,7 @@ interface DataProps {
   name: string;
   image: string;
   repoLink: string;
+  projectLink: string;
   tools: string[];
 }
 

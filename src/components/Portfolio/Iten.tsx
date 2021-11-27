@@ -1,6 +1,28 @@
 import React from 'react';
 
-import { Flex, Box, Img } from '@chakra-ui/react';
+import { 
+  Flex, 
+  Box, 
+  Img, 
+  useDisclosure,
+  SimpleGrid,
+  Text,
+  Icon,
+  Divider,
+  Heading,
+  Stack,
+  Button,  
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton 
+} from '@chakra-ui/react';
+
+import { BsEyeFill } from 'react-icons/bs'; 
+import { TiCodeOutline } from 'react-icons/ti';
 
 interface ProductProps {
   product: {
@@ -8,12 +30,17 @@ interface ProductProps {
     name: string;
     image: string;
     repoLink: string;
+    projectLink: string;
     tools: string[];
   };
 }
 
 export const Iten: React.FC<ProductProps> = ({product}) => {
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
+    <>
     <Flex 
       direction="column"
       maxW="40rem"
@@ -21,6 +48,7 @@ export const Iten: React.FC<ProductProps> = ({product}) => {
       borderRadius="0.5rem"
       h="20rem"
       bg="purple.800"
+      onClick={onOpen}
     >
       <Box 
         w="100%"
@@ -48,5 +76,87 @@ export const Iten: React.FC<ProductProps> = ({product}) => {
         <Img src={product.image} alt="Twitter Image"/>
       </Flex>
     </Flex>
+    
+      <Modal isOpen={isOpen} onClose={onClose} size="3xl">
+        <ModalOverlay />
+          
+        <ModalContent
+          bg="purple.800"
+        >
+          <ModalHeader>{product.name}</ModalHeader>
+          <ModalCloseButton _focus={{}}/>
+
+          <ModalBody>
+            <SimpleGrid minChildWidth="20rem">
+              <Flex w="100%" maxW="20rem" justify="center" align="center">
+                <Img 
+                  src={product.image}
+                  alt={product.name}
+                />
+              </Flex>
+              
+
+              <Stack>
+                <Heading as="h3" size="md">
+                  Name:
+                </Heading>
+                <Text>
+                  {product.name}
+                </Text>
+                <Divider/>
+
+                <Heading as="h3" size="md">
+                  Description:
+                </Heading>
+                <Text>
+                  {product.description}
+                </Text>
+                <Divider/>
+
+                <Heading as="h3" size="md">
+                  Tools:
+                </Heading>
+
+                {product.tools.map(item => (
+                  <Text p="0.25rem" borderRadius="0.25rem" bg="purple.600">
+                    {item}
+                  </Text>
+                ))}
+              </Stack>
+            </SimpleGrid>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme="red" mr={3} onClick={onClose}>
+              Close
+            </Button>
+
+            <Button 
+              as="a" 
+              href={product.projectLink}
+              target="_blank" 
+              colorScheme="purple" 
+              mr={3} 
+              onClick={onClose}
+              leftIcon={<Icon as={BsEyeFill} />}
+            >
+              Demo
+            </Button>
+
+            <Button 
+              as="a" 
+              href={product.repoLink} 
+              target="_blank" 
+              colorScheme="purple"
+              mr={3}
+              onClick={onClose}
+              leftIcon={<Icon as={TiCodeOutline} />}
+            >
+              Code
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
   );
 };

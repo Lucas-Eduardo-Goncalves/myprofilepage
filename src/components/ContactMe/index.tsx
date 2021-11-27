@@ -2,14 +2,23 @@ import React from 'react';
 import emailjs from 'emailjs-com';
 import toast, { Toaster } from 'react-hot-toast';
 
+import { useForm, SubmitHandler } from 'react-hook-form';
+
 import { Flex, Heading, Input, Text, Textarea, Button } from '@chakra-ui/react';
+
+interface InputProps  {
+  name: string;
+  email: string
+  subject: string;
+  message: string;
+}
 
 export const ContactMe: React.FC = () => {
 
-  const submitForm = (data: any) => {
-    data.preventDefault();
+  const { register, formState: { errors, isSubmitting }, handleSubmit } = useForm<InputProps>();
 
-    emailjs.sendForm('service_9ijvrcy', 'template_ruev0ki', data.target, 'user_R903exDTQcVm3KfXACqiK')
+  const submitForm: SubmitHandler<InputProps> = data => {
+    emailjs.sendForm('service_9ijvrcy', 'template_ruev0ki', '#contact', 'user_R903exDTQcVm3KfXACqiK')
       .then(() => {
         toast.success('Email send success.')
       }, () => {
@@ -24,7 +33,7 @@ export const ContactMe: React.FC = () => {
       minH="100vh"
       maxW="40rem"
       as="form"
-      onSubmit={submitForm}
+      onSubmit={handleSubmit(submitForm)}
     >
       <Toaster />
 
@@ -48,7 +57,8 @@ export const ContactMe: React.FC = () => {
         border="none"
         mt="0.5rem"
         bg="purple.700"
-        name='name'
+        {...register('name', {required: true})}
+        isInvalid={!!errors.name}
       />
 
       <Input 
@@ -56,7 +66,8 @@ export const ContactMe: React.FC = () => {
         border="none"
         mt="0.5rem"
         bg="purple.700"
-        name='email'
+        {...register('email', {required: true})}
+        isInvalid={!!errors.email}
       />
 
       <Input 
@@ -64,19 +75,21 @@ export const ContactMe: React.FC = () => {
         mt="0.5rem"
         border="none"
         bg="purple.700"
-        name='subject'
+        {...register('subject', {required: true})}
+        isInvalid={!!errors.subject}
       />
 
       <Textarea
         placeholder="Message:"
         mt="0.5rem"
         bg="purple.700"
-        name='message'
+        {...register('message', {required: true})}
+        isInvalid={!!errors.name}
         border="none"
         resize="none"
       />  
 
-      <Button type="submit" colorScheme="green" mt="0.5rem">
+      <Button type="submit" colorScheme="green" mt="0.5rem" isLoading={isSubmitting}>
         Send E-mail
       </Button> 
     </Flex>

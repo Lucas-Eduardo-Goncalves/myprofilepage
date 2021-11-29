@@ -5,6 +5,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 import { Flex, Heading, Input, Text, Textarea, Button } from '@chakra-ui/react';
+import { useLenguage } from '../../hooks/useLenguage';
 
 interface InputProps  {
   name: string;
@@ -17,12 +18,14 @@ export const ContactMe: React.FC = () => {
 
   const { register, formState: { errors, isSubmitting }, handleSubmit } = useForm<InputProps>();
 
+  const { lenguage } = useLenguage();
+
   const submitForm: SubmitHandler<InputProps> = data => {
     emailjs.sendForm('service_9ijvrcy', 'template_ruev0ki', '#contact', 'user_R903exDTQcVm3KfXACqiK')
       .then(() => {
-        toast.success('Email send success.')
+        toast.success(lenguage ? 'Email enviado com sucesso' : 'Email send success.')
       }, () => {
-        toast.error('Email send error.')
+        toast.error(lenguage ? 'Ocorreu um erro' : 'Email send error.')
     });
   }
 
@@ -41,7 +44,7 @@ export const ContactMe: React.FC = () => {
         color="purple.300"
         fontSize="3rem"  
       >
-        Contact me
+        {lenguage ? "Me contate" : "Contact me"}
       </Heading>
 
       <Text
@@ -49,11 +52,11 @@ export const ContactMe: React.FC = () => {
         mt="1rem"
         mb="1rem"
       >
-        Contact me from e-mail.
+        {lenguage ? "Me contate pelo E-mail" : "Contact me from e-mail."}
       </Text>
 
       <Input 
-        placeholder="Name:"
+        placeholder={lenguage ? "Nome:" : "Name:"}
         border="none"
         mt="0.5rem"
         bg="purple.700"
@@ -71,7 +74,7 @@ export const ContactMe: React.FC = () => {
       />
 
       <Input 
-        placeholder="Subject:"
+        placeholder={lenguage ? "Sujeito" : "Subject:"}
         mt="0.5rem"
         border="none"
         bg="purple.700"
@@ -80,7 +83,7 @@ export const ContactMe: React.FC = () => {
       />
 
       <Textarea
-        placeholder="Message:"
+        placeholder={lenguage ? "Mensagem:" : "Message:"}
         mt="0.5rem"
         bg="purple.700"
         {...register('message', {required: true})}
@@ -90,7 +93,7 @@ export const ContactMe: React.FC = () => {
       />  
 
       <Button type="submit" colorScheme="green" mt="0.5rem" isLoading={isSubmitting}>
-        Send E-mail
+        {lenguage ? "Enviar E-mail" : "Send E-mail"}
       </Button> 
     </Flex>
   );

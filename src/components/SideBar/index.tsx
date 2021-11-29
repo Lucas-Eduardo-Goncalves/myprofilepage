@@ -8,10 +8,13 @@ import { ImHome } from 'react-icons/im';
 import { FaCode, FaQuestionCircle } from 'react-icons/fa';
 import { GoRepoForked } from 'react-icons/go';
 import { MdOutlineContactMail } from 'react-icons/md';
+import { useLenguage } from '../../hooks/useLenguage';
 
 export const SideBar: React.FC = () => {
 
   const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
+
+  const { lenguage } = useLenguage();
 
   if(isLargerThan800) {
     return (
@@ -39,13 +42,13 @@ export const SideBar: React.FC = () => {
       />
 
       <LinkButton
-        name="Portfolio"
+        name={lenguage ? "Portfólio" : "Portfolio"}
         as="portfolio"
         icon={FaCode}
       />
 
       <LinkButton
-        name="About"
+        name={lenguage ? "Sobre" : "About"}
         as="about"
         icon={FaQuestionCircle}
       />
@@ -57,7 +60,7 @@ export const SideBar: React.FC = () => {
       />
 
       <LinkButton
-        name="Contact"
+        name={lenguage ? "Contato" : "Contact"}
         as="contact"
         icon={MdOutlineContactMail}
       />

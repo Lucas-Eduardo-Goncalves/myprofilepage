@@ -2,8 +2,12 @@ import React from 'react';
 
 import { Button } from '@chakra-ui/react';
 import { Link } from "react-scroll";
+import { useLenguage } from '../../hooks/useLenguage';
 
 export const ContactButton: React.FC = () => {
+
+  const { lenguage } = useLenguage();
+
   return (
     <Button
       bg="purple.300"
@@ -20,7 +24,7 @@ export const ContactButton: React.FC = () => {
       offset={-70}
       duration={500}
     >
-      Contact-me
+      {lenguage ? "Me contate" : "Contact-me"}
     </Button>
   );
 };

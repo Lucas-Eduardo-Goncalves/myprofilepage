@@ -10,6 +10,7 @@ import { firebaseConfig } from './services/firebase';
 import { Home } from './pages/Home';
 
 import { theme } from './styles/GlobalStyles';
+import { LenguageProvider } from './hooks/useLenguage';
 
 export const App: React.FC = () => {
 
@@ -19,9 +20,11 @@ export const App: React.FC = () => {
     <FuegoProvider fuego={fuego}>
       <DancingLines />
       
-      <ChakraProvider theme={theme}>
-        <Home />
-      </ChakraProvider>
+      <LenguageProvider>
+        <ChakraProvider theme={theme}>
+          <Home />
+        </ChakraProvider>
+      </LenguageProvider>
     </FuegoProvider>
   );
 };

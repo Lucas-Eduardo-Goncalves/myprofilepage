@@ -6,8 +6,12 @@ import { Title } from './Title';
 import { Headline } from './Headline';
 import { ContactButton } from './ContactButton';
 import { AreaBlock } from './AreaBlock';
+import { useLenguage } from '../../hooks/useLenguage';
 
 export const Header: React.FC = () => {
+
+  const { lenguage } = useLenguage();
+
   return (
     <Flex
       h="100vh"
@@ -18,9 +22,9 @@ export const Header: React.FC = () => {
         id="home"
       >
 
-        <Title name="Hey,"/>
-        <Title name="I'm Lucas,"/>
-        <Title name="webdeveloper,"/>
+        <Title name={lenguage ? "Olá," : "Hey,"}/>
+        <Title name={lenguage ? "Eu sou o Lucas," : "I'm Lucas,"}/>
+        <Title name={lenguage ? "Desenvolvedor web," : "webdeveloper,"}/>
 
         <Headline />
 

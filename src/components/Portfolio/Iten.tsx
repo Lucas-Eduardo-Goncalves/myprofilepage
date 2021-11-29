@@ -23,6 +23,7 @@ import {
 
 import { BsEyeFill } from 'react-icons/bs'; 
 import { TiCodeOutline } from 'react-icons/ti';
+import { useLenguage } from '../../hooks/useLenguage';
 
 interface ProductProps {
   product: {
@@ -38,6 +39,8 @@ interface ProductProps {
 export const Iten: React.FC<ProductProps> = ({product}) => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const { lenguage } = useLenguage();
 
   return (
     <>
@@ -98,7 +101,7 @@ export const Iten: React.FC<ProductProps> = ({product}) => {
 
               <Stack>
                 <Heading as="h3" size="md">
-                  Name:
+                  {lenguage ? "Nome" : "Name:"}
                 </Heading>
                 <Text>
                   {product.name}
@@ -106,7 +109,7 @@ export const Iten: React.FC<ProductProps> = ({product}) => {
                 <Divider/>
 
                 <Heading as="h3" size="md">
-                  Description:
+                  {lenguage ? "Descrição:" : "Description:"}
                 </Heading>
                 <Text>
                   {product.description}
@@ -114,7 +117,7 @@ export const Iten: React.FC<ProductProps> = ({product}) => {
                 <Divider/>
 
                 <Heading as="h3" size="md">
-                  Tools:
+                  {lenguage ? "Ferramentas:" : "Tools:"}
                 </Heading>
 
                 {product.tools.map(item => (

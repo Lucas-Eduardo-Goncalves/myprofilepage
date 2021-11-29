@@ -4,8 +4,12 @@ import { Flex, Heading } from '@chakra-ui/react';
 
 import { Footer } from './Footer';
 import { PText } from './PText';
+import { useLenguage } from '../../hooks/useLenguage';
 
 export const About: React.FC = () => {
+
+  const { lenguage } = useLenguage();
+
   return (
     <Flex
       id="about"
@@ -16,7 +20,7 @@ export const About: React.FC = () => {
         color="purple.300"
         fontSize="3rem"  
       >
-        About
+        {lenguage ? "Sobre mim" : "About"}
       </Heading>
 
       <PText />

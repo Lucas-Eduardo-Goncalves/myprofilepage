@@ -1,8 +1,12 @@
 import React from 'react';
 
 import { Flex, Text } from '@chakra-ui/react';
+import { useLenguage } from '../../hooks/useLenguage';
 
 export const Headline: React.FC = () => {
+
+  const { lenguage } = useLenguage();
+
   return (
     <Flex
       mt="1.5rem"
@@ -11,7 +15,7 @@ export const Headline: React.FC = () => {
       <Text
         color="gray.300"
       >
-        Front-End Developer
+        {lenguage ? "Desenvolvedor Front-End " : "Front-End Developer"}
       </Text>
 
       <Text
@@ -24,7 +28,8 @@ export const Headline: React.FC = () => {
       <Text
         color="gray.300"
       >
-        Minas Gerais, Brazil
+        {lenguage ? "Minas Gerais, Brasil" : "Minas Gerais, Brazil"}
+        
       </Text>
     </Flex>
   );

@@ -4,6 +4,7 @@ import { Flex, Heading, Text, SimpleGrid } from '@chakra-ui/react';
 
 import { Iten } from './Iten';
 import { useCollection } from '@nandorojo/swr-firestore';
+import { useLenguage } from '../../hooks/useLenguage';
 
 interface DataProps {
   description: string;
@@ -17,6 +18,7 @@ interface DataProps {
 export const Portfolio: React.FC = () => {
 
   const { data } = useCollection<DataProps>('projects', {listen: true});
+  const { lenguage } = useLenguage();
 
   return (
     <Flex
@@ -27,7 +29,7 @@ export const Portfolio: React.FC = () => {
         color="purple.300"
         fontSize="3rem"  
       >
-        My Portfolio
+        {lenguage ? "Meu portfólio" : "My Portfolio"}
       </Heading>
 
       <Text 
@@ -35,7 +37,7 @@ export const Portfolio: React.FC = () => {
         mt="1rem"
         mb="1rem"
       >
-        Some of my best projects that I have worked on in the past months. Some of them are both developed and designed by me, and others it's just the code {`:)`}     
+        {lenguage ? "Alguns dos meus melhores projetos que trabalhei nos últimos meses. Alguns deles são desenvolvidos e projetados por mim, e outros são apenas o código :)" : "Some of my best projects I've worked on in the last few months. Some of them are developed and designed by me, and others are just code :)"}
       </Text>
 
       <SimpleGrid

@@ -7,10 +7,11 @@ import Fuego from './services/swr-firestore';
 import { FuegoProvider } from '@nandorojo/swr-firestore'
 import { firebaseConfig } from './services/firebase';
 
-import { Home } from './pages/Home';
+import { Routes } from './routes';
 
 import { theme } from './styles/GlobalStyles';
 import { LenguageProvider } from './hooks/useLenguage';
+import { AuthContextProvider } from './hooks/useAuth';
 
 export const App: React.FC = () => {
 
@@ -19,12 +20,14 @@ export const App: React.FC = () => {
   return (
     <FuegoProvider fuego={fuego}>
       <DancingLines />
-      
-      <LenguageProvider>
-        <ChakraProvider theme={theme}>
-          <Home />
-        </ChakraProvider>
-      </LenguageProvider>
+    
+      <AuthContextProvider>
+        <LenguageProvider>
+          <ChakraProvider theme={theme}>
+            <Routes />
+          </ChakraProvider>
+        </LenguageProvider>
+      </AuthContextProvider>
     </FuegoProvider>
   );
 };

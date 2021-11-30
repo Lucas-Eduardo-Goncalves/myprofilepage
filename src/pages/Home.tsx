@@ -15,15 +15,14 @@ export const Home: React.FC = () => {
   const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
 
   const { lenguage, setLenguage } = useLenguage();
-  console.log(lenguage)
-
+  
   return (
     <>
       <SideBar />
 
       <Stack
         p={!isLargerThan800 ? "1rem" : "0 1rem 1rem 5rem"} 
-        spacing="10rem"
+        spacing="5rem"
       > 
 
         <Header />
@@ -44,6 +43,8 @@ export const Home: React.FC = () => {
         <Text mr="1rem">
           Inglês
         </Text>
+
+        
 
         <Switch 
           defaultChecked={lenguage}

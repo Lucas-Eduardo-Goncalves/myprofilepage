@@ -67,7 +67,7 @@ export const Iten: React.FC<ProductProps> = ({product}) => {
         align="center"
         justify="center"
         h="100%"
-        p="3rem"
+        p="4rem"
         border="4px solid transparent"
         borderTop="none"
         borderRadius="0 0 0.5rem 0.5rem"
@@ -76,7 +76,7 @@ export const Iten: React.FC<ProductProps> = ({product}) => {
           borderColor: "purple.600",
         }}
       >
-        <Img src={product.image} alt="Twitter Image"/>
+        <Img w="100%" src={product.image} alt="Twitter Image"/>
       </Flex>
     </Flex>
     

@@ -3,10 +3,12 @@ import React from 'react';
 import { Tabs, TabList, Tab, TabPanels, TabPanel, Center } from '@chakra-ui/react';
 
 import { FrontEndPanel } from './FrontEndPanel';
+import { ArticlePanel } from './ArticlePanel';
+
 import { useCollection } from '@nandorojo/swr-firestore';
 import { useLenguage } from '../../../hooks/useLenguage';
 
-interface DataProps {
+interface DataProjectProps {
   description: string;
   name: string;
   image: string;
@@ -15,8 +17,15 @@ interface DataProps {
   tools: string[];
 }
 
+interface DataArticleProps {
+  name: string;
+  description: string;
+  repoLink: string;
+}
+
 export const MyTab: React.FC = () => {
-  const { data } = useCollection<DataProps>('projects', {listen: true});
+  const { data: DataProjects } = useCollection<DataProjectProps>('projects', {listen: true});
+  const { data: DataArticle } = useCollection<DataArticleProps>('articles', {listen: true});
   const { lenguage } = useLenguage();
 
   return (
@@ -30,7 +39,7 @@ export const MyTab: React.FC = () => {
 
       <TabPanels mt="1rem">
         <TabPanel>
-          {data && <FrontEndPanel data={data} />}
+          {DataProjects && <FrontEndPanel data={DataProjects} />}
         </TabPanel>
 
         <TabPanel>
@@ -50,11 +59,7 @@ export const MyTab: React.FC = () => {
         </TabPanel>
 
         <TabPanel>
-          <Center
-            h="50vh"
-          >
-            Nada até o momento
-          </Center>
+          {DataArticle && <ArticlePanel data={DataArticle} />}
         </TabPanel>
       </TabPanels>
     </Tabs>

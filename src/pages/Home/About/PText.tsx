@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Text } from '@chakra-ui/react';
-import { useLenguage } from '../../hooks/useLenguage';
+import { useLenguage } from '../../../hooks/useLenguage';
 
 export const PText: React.FC = () => {
   

@@ -7,10 +7,10 @@ import { Admin } from '../pages/Admin';
 export const Routes: React.FC = () => {
   return (
     <BrowserRouter>
-        <Switch>
-          <Route path="/" component={Home} exact/>
-          <Route path="/admin" component={Admin} />
-        </Switch>   
+      <Switch>
+        <Route path="/" component={Home} exact/>
+        <Route path="/admin" component={Admin} />
+      </Switch>   
     </BrowserRouter>
   );
 }

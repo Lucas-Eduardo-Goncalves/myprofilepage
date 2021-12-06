@@ -30,7 +30,7 @@ export const FrontEndPanel: React.FC<FrontEndPanelData> = ({data}) => {
         gap="5"
       >
         {data?.slice(0, 4).map(project => (
-          <Iten key={project.id} product={project}/> 
+          <Iten key={project.name + project.id} product={project}/> 
         ))}
       </SimpleGrid>
 

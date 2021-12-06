@@ -23,7 +23,7 @@ import {
 
 import { BsEyeFill } from 'react-icons/bs'; 
 import { TiCodeOutline } from 'react-icons/ti';
-import { useLenguage } from '../../../../hooks/useLenguage';
+import { useLenguage } from '../../../../../hooks/useLenguage';
 
 interface ProductProps {
   product: {

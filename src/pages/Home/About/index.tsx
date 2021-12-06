@@ -4,7 +4,7 @@ import { Flex, Heading } from '@chakra-ui/react';
 
 import { Footer } from './Footer';
 import { PText } from './PText';
-import { useLenguage } from '../../hooks/useLenguage';
+import { useLenguage } from '../../../hooks/useLenguage';
 
 export const About: React.FC = () => {
 

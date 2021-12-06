@@ -19,15 +19,15 @@ export const App: React.FC = () => {
 
   return (
     <FuegoProvider fuego={fuego}>
-      <DancingLines />
+      <ChakraProvider theme={theme}>
+        <DancingLines />
     
-      <AuthContextProvider>
-        <LenguageProvider>
-          <ChakraProvider theme={theme}>
+        <AuthContextProvider>
+          <LenguageProvider>
             <Routes />
-          </ChakraProvider>
-        </LenguageProvider>
-      </AuthContextProvider>
+          </LenguageProvider>
+        </AuthContextProvider>
+      </ChakraProvider>
     </FuegoProvider>
   );
 };

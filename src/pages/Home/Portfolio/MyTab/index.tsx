@@ -6,7 +6,7 @@ import { FrontEndPanel } from './FrontEndPanel';
 import { ArticlePanel } from './ArticlePanel';
 
 import { useCollection } from '@nandorojo/swr-firestore';
-import { useLenguage } from '../../../hooks/useLenguage';
+import { useLenguage } from '../../../../hooks/useLenguage';
 
 interface DataProjectProps {
   description: string;
@@ -38,11 +38,11 @@ export const MyTab: React.FC = () => {
       </TabList>
 
       <TabPanels mt="1rem">
-        <TabPanel>
+        <TabPanel p="0">
           {DataProjects && <FrontEndPanel data={DataProjects} />}
         </TabPanel>
 
-        <TabPanel>
+        <TabPanel p="0">
           <Center
             h="50vh"
           >
@@ -50,7 +50,7 @@ export const MyTab: React.FC = () => {
           </Center>
         </TabPanel>
 
-        <TabPanel>
+        <TabPanel p="0">
           <Center
             h="50vh"
           >
@@ -58,7 +58,7 @@ export const MyTab: React.FC = () => {
           </Center>
         </TabPanel>
 
-        <TabPanel>
+        <TabPanel p="0">
           {DataArticle && <ArticlePanel data={DataArticle} />}
         </TabPanel>
       </TabPanels>

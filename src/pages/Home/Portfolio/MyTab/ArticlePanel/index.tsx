@@ -16,7 +16,7 @@ export const ArticlePanel: React.FC<ArticlePanelProps> = ({ data }) => {
   return (
     <Accordion allowToggle flex="1" h="50vh">
       {data.map(item => (
-        <AccordionItem>
+        <AccordionItem key={item.name}>
           <h2>
             <AccordionButton _focus={{}}>
                 <Text>

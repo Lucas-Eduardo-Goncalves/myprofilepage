@@ -1,5 +1,7 @@
 import React, { createContext, useState, useContext } from 'react';
 
+import { Flex, Text, Switch } from '@chakra-ui/react';
+
 interface AuthContextData {
   lenguage: boolean;
   setLenguage: (data: boolean) => void;
@@ -26,6 +28,30 @@ export const LenguageProvider: React.FC = ({ children }) => {
 
   return(
     <AuthContext.Provider value={{ lenguage: isLenguage, setLenguage}}>
+
+      <Flex
+        position="fixed"
+        top="2"
+        right="2"
+        zIndex="3"
+        size="md"
+        align="center"
+      >
+        <Text mr="1rem">
+          Inglês
+        </Text>
+
+        <Switch 
+          defaultChecked={isLenguage}
+          onChange={() => setLenguage(!isLenguage)}
+          colorScheme="cyan"
+        />
+
+        <Text ml="1rem">
+          Português
+        </Text>
+      </Flex>
+
       {children}
     </AuthContext.Provider>
   );

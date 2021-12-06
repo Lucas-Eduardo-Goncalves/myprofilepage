@@ -5,7 +5,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 import { Flex, Heading, Input, Text, Textarea, Button } from '@chakra-ui/react';
-import { useLenguage } from '../../hooks/useLenguage';
+import { useLenguage } from '../../../hooks/useLenguage';
 
 interface InputProps  {
   name: string;
@@ -33,7 +33,6 @@ export const ContactMe: React.FC = () => {
     <Flex
       id="contact"
       direction="column"
-      minH="100vh"
       maxW="40rem"
       as="form"
       onSubmit={handleSubmit(submitForm)}

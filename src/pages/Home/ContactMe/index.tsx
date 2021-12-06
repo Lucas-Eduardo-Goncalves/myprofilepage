@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -16,17 +16,25 @@ interface InputProps  {
 
 export const ContactMe: React.FC = () => {
 
-  const { register, formState: { errors, isSubmitting }, handleSubmit } = useForm<InputProps>();
+  const [loading, setLoading] = useState(false);
+
+  const { register, formState: { errors }, handleSubmit, reset } = useForm<InputProps>();
 
   const { lenguage } = useLenguage();
 
   const submitForm: SubmitHandler<InputProps> = data => {
+    setLoading(true);
+
     emailjs.sendForm('service_9ijvrcy', 'template_ruev0ki', '#contact', 'user_R903exDTQcVm3KfXACqiK')
       .then(() => {
         toast.success(lenguage ? 'Email enviado com sucesso' : 'Email send success.')
+        setLoading(false);
       }, () => {
         toast.error(lenguage ? 'Ocorreu um erro' : 'Email send error.')
+        setLoading(false);
     });
+
+    reset();
   }
 
   return (
@@ -91,7 +99,7 @@ export const ContactMe: React.FC = () => {
         resize="none"
       />  
 
-      <Button type="submit" colorScheme="green" mt="0.5rem" isLoading={isSubmitting}>
+      <Button type="submit" colorScheme="green" mt="0.5rem" isLoading={loading}>
         {lenguage ? "Enviar E-mail" : "Send E-mail"}
       </Button> 
     </Flex>

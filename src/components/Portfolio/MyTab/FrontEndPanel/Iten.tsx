@@ -46,10 +46,7 @@ export const Iten: React.FC<ProductProps> = ({product}) => {
     <>
     <Flex 
       direction="column"
-      maxW="40rem"
-      w="100%"
       borderRadius="0.5rem"
-      h="20rem"
       bg="purple.800"
       onClick={onOpen}
     >

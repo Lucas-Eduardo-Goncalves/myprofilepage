@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Flex, useMediaQuery  } from '@chakra-ui/react';
 
@@ -18,53 +18,53 @@ export const SideBar: React.FC = () => {
 
   if(isLargerThan800) {
     return (
-    <Flex 
-      position="fixed"
-      as="nav"
-      top="0"
-      left="0"
-      flexDirection="column"
-      overflow="hidden"
-      justify="center"
-      bg="purple.800"
-      w="4rem"
-      h="100vh"
-      transition="width 0.3s"
-      zIndex="2"
-      _hover={{
-        w: "9rem"
-      }}
-    >
-      <LinkButton
-        name="Home"
-        as="home"
-        icon={ImHome}
-      />
+      <Flex 
+        position="fixed"
+        as="nav"
+        top="0"
+        left="0"
+        flexDirection="column"
+        overflow="hidden"
+        justify="center"
+        bg="purple.800"
+        w="4rem"
+        h="100vh"
+        transition="width 0.3s"
+        zIndex="2"
+        _hover={{
+          w: "9rem"
+        }}
+      >
+        <LinkButton
+          name="Home"
+          as="home"
+          icon={ImHome}
+        />
 
-      <LinkButton
-        name={lenguage ? "Portfólio" : "Portfolio"}
-        as="portfolio"
-        icon={FaCode}
-      />
+        <LinkButton
+          name={lenguage ? "Portfólio" : "Portfolio"}
+          as="portfolio"
+          icon={FaCode}
+        />
 
-      <LinkButton
-        name={lenguage ? "Sobre" : "About"}
-        as="about"
-        icon={FaQuestionCircle}
-      />
+        <LinkButton
+          name={lenguage ? "Sobre" : "About"}
+          as="about"
+          icon={FaQuestionCircle}
+        />
 
-      <LinkButton
-        name="RepoStats"
-        as="repostats"
-        icon={GoRepoForked}
-      />
+        <LinkButton
+          name="RepoStats"
+          as="repostats"
+          icon={GoRepoForked}
+        />
 
-      <LinkButton
-        name={lenguage ? "Contato" : "Contact"}
-        as="contact"
-        icon={MdOutlineContactMail}
-      />
-    </Flex>
+        <LinkButton
+          name={lenguage ? "Contato" : "Contact"}
+          as="contact"
+          icon={MdOutlineContactMail}
+        />
+      </Flex>
     )
   } else {
     return (

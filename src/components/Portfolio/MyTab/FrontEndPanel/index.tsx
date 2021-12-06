@@ -26,7 +26,7 @@ export const FrontEndPanel: React.FC<FrontEndPanelData> = ({data}) => {
   return (
     <>
       <SimpleGrid
-        minChildWidth="25rem"
+        columns={[1, null, 2]}
         gap="5"
       >
         {data?.slice(0, 4).map(project => (

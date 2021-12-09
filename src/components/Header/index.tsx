@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Flex, useMediaQuery } from '@chakra-ui/react';
+import { Flex, useBreakpointValue } from '@chakra-ui/react';
 
 import { Title } from './Title';
 import { Headline } from './Headline';
@@ -11,14 +11,14 @@ import { useLenguage } from '../../hooks/useLenguage';
 export const Header: React.FC = () => {
 
   const { lenguage } = useLenguage();
-  const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
+  const isLargerThanMd = useBreakpointValue({ base: false, md: true })
 
   return (
     <Flex
       as="header"
       h="100vh"
       align="center"
-      p={!isLargerThan800 ? "1rem" : "0 1rem 1rem 5rem"} 
+      p={!isLargerThanMd ? "1rem" : "0 1rem 1rem 5rem"} 
     >
       <Flex 
         flexDir="column"

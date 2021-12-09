@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { Flex, useMediaQuery } from '@chakra-ui/react';
+import { Flex, useBreakpointValue } from '@chakra-ui/react';
 
 import { Block } from './Block';
 
 export const AreaBlock: React.FC = () => {
   
-  const [isLargerThan1010] = useMediaQuery("(min-width: 1010px)")
+  const isLargerThanMd = useBreakpointValue({ base: false, lg: true })
 
-  if (isLargerThan1010) {
+  if (isLargerThanMd) {
     return (
       <Flex
         direction="column"

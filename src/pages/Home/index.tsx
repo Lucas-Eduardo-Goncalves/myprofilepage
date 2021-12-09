@@ -9,11 +9,11 @@ import { ContactMe } from './ContactMe';
 import { MyRepo } from './MyRepo';
 import { Portfolio } from './Portfolio';
 
-import { Stack, useMediaQuery } from '@chakra-ui/react';
+import { Stack, useBreakpointValue } from '@chakra-ui/react';
 
 export const Home: React.FC = () => {
 
-  const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
+  const isLargerThanMd = useBreakpointValue({ base: false, md: true })
 
   return (
     <>
@@ -22,7 +22,7 @@ export const Home: React.FC = () => {
 
       <Stack
         as="main"
-        p={!isLargerThan800 ? "1rem" : "0 1rem 1rem 5rem"} 
+        p={!isLargerThanMd ? "1rem" : "0 1rem 1rem 5rem"} 
         spacing="5rem"
       > 
         <Portfolio  />

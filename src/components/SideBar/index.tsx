@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Flex, useMediaQuery  } from '@chakra-ui/react';
+import { Flex, useBreakpointValue } from '@chakra-ui/react';
 
 import { LinkButton } from './LinkButton';
 
@@ -12,11 +12,11 @@ import { useLenguage } from '../../hooks/useLenguage';
 
 export const SideBar: React.FC = () => {
 
-  const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
+  const isLargerThanMd = useBreakpointValue({ base: false, md: true })
 
   const { lenguage } = useLenguage();
 
-  if(isLargerThan800) {
+  if(isLargerThanMd) {
     return (
       <Flex 
         position="fixed"

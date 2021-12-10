@@ -77,7 +77,7 @@ export const Iten: React.FC<ProductProps> = ({product}) => {
       </Flex>
     </Flex>
     
-      <Modal isOpen={isOpen} onClose={onClose} size="3xl">
+      <Modal isOpen={isOpen} onClose={onClose} size="3xl" scrollBehavior="inside">
         <ModalOverlay />
           
         <ModalContent

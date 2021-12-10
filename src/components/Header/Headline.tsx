@@ -9,11 +9,12 @@ export const Headline: React.FC = () => {
 
   return (
     <Flex
-      mt="1.5rem"
+      mt={["0.5rem", "1rem", "1.5rem"]}
       align="center"
     >
       <Text
         color="gray.300"
+        fontSize={["0.6rem", "0.8rem", "1rem"]}
       >
         {lenguage ? "Desenvolvedor Front-End " : "Front-End Developer"}
       </Text>
@@ -27,6 +28,7 @@ export const Headline: React.FC = () => {
 
       <Text
         color="gray.300"
+        fontSize={["0.6rem", "0.8rem", "1rem"]}
       >
         {lenguage ? "Minas Gerais, Brasil" : "Minas Gerais, Brazil"}
         

@@ -10,8 +10,8 @@ export const Block: React.FC<ContainerProps> = ({bgGradient, ...rest}) => {
 
   return (
     <Center
-      w="12rem"
-      h="12rem"
+      w={["10rem", "12rem"]}
+      h={["10rem", "12rem"]}
       {...rest}
     >
       <Box

@@ -12,7 +12,8 @@ export const ContactButton: React.FC = () => {
     <Button
       bg="purple.300"
       as={Link}
-      w="15rem"
+      w={["10rem", "15rem"]}
+      fontSize={["0.8rem", "1rem"]}
       mt="1.5rem"
       borderRadius="0.25rem"
       _hover={{

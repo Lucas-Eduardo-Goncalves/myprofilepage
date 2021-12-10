@@ -20,7 +20,7 @@ const LinkButtonComponente: React.FC<LinkButtonProps> = ({ icon, name = '', as }
       offset={-70}
       duration={500}
       align="center"
-      h="3.5rem"
+      h={"3.5rem"}
       _hover={{
         bg: 'purple.700',
         cursor: 'pointer'
@@ -30,7 +30,7 @@ const LinkButtonComponente: React.FC<LinkButtonProps> = ({ icon, name = '', as }
         minW="4rem"
         justify="center"
       >
-        <Icon fontSize="1.5rem" as={icon} />
+        <Icon fontSize={["1.25rem", "1.5rem"]} as={icon} />
       </Flex>
       <Text>
         {name}

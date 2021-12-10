@@ -13,8 +13,8 @@ export const AreaBlock: React.FC = () => {
       <Flex
         direction="column"
         position="relative"
-        w="20rem"
-        h="24rem"
+        w={["18rem", "20rem"]}
+        h={["22rem", "24rem"]}
         ml="auto"
       >
         <Block 

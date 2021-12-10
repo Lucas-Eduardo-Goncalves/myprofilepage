@@ -17,20 +17,22 @@ export const ArticlePanel: React.FC<ArticlePanelProps> = ({ data }) => {
     <Accordion allowToggle flex="1" h="50vh">
       {data.map(item => (
         <AccordionItem key={item.name}>
-          <h2>
-            <AccordionButton _focus={{}}>
-                <Text>
-                  {item.name}
-                </Text>
-                <Link href={item.repoLink} target="_blank" ml="auto" textAlign='left'>
-                  Link Para o artigo.
-                </Link>
-            
-              <AccordionIcon />
+            <AccordionButton _focus={{}} flex="1">
+              <Text as="h2" fontSize={["0.8rem", "1rem"]}>
+                {item.name}
+              </Text >
+
+              <AccordionIcon ml="auto"/>
             </AccordionButton>
-          </h2>
           <AccordionPanel pb={4}>
-            {item.description}
+            <Text fontSize={["0.8rem", "1rem"]}>
+              {item.description}
+            </Text >
+           
+            <br/>
+            <Link href={item.repoLink} color="blue.500" target="_blank" fontSize={["0.6rem", "0.8rem", "1rem"]}>
+              Link Para o artigo.
+            </Link>
           </AccordionPanel>
         </AccordionItem>
       ))}

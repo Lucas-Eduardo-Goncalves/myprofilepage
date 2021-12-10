@@ -10,7 +10,7 @@ export const MyRepo: React.FC = () => {
     >
       <Heading 
         color="purple.300"  
-        fontSize="3rem" 
+        fontSize={['2rem' , '3rem']}
         mb="1rem" 
       >
         Repository Stats

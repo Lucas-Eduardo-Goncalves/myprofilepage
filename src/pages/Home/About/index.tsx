@@ -18,7 +18,7 @@ export const About: React.FC = () => {
     >
       <Heading 
         color="purple.300"
-        fontSize="3rem"  
+        fontSize={['2rem' , '3rem']}
       >
         {lenguage ? "Sobre mim" : "About"}
       </Heading>

@@ -11,7 +11,7 @@ export const Title: React.FC<TitleProps> = ({ name }) => {
   return (
     <Heading 
       as="h1"
-      fontSize={['2rem' , '3rem', '4rem', '5em']}
+      fontSize={['2rem' , '3rem', '4rem']}
     >
       {name}
     </Heading>

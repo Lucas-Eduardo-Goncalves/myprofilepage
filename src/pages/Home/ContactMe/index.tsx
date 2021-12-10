@@ -49,7 +49,7 @@ export const ContactMe: React.FC = () => {
 
       <Heading 
         color="purple.300"
-        fontSize="3rem"  
+        fontSize={['2rem' , '3rem']}
       >
         {lenguage ? "Me contate" : "Contact me"}
       </Heading>
@@ -58,6 +58,7 @@ export const ContactMe: React.FC = () => {
         maxW="50rem"
         mt="1rem"
         mb="1rem"
+        fontSize={["0.8rem", "1rem"]}
       >
         {lenguage ? "Me contate pelo E-mail" : "Contact me from e-mail."}
       </Text>

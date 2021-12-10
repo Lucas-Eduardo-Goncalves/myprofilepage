@@ -31,10 +31,10 @@ export const MyTab: React.FC = () => {
   return (
     <Tabs colorScheme="purple" variant='soft-rounded'>
       <TabList mt="1rem">
-        <Tab _focus={{}}>Front-End</Tab>
-        <Tab _focus={{}}>Back-End</Tab>
-        <Tab _focus={{}}>Mobile</Tab>
-        <Tab _focus={{}}>{lenguage ? "Artigos" : "Articles"}</Tab>
+        <Tab _focus={{}} fontSize={["0.7rem", "1rem"]}>Frontend</Tab>
+        <Tab _focus={{}} fontSize={["0.7rem", "1rem"]}>Backend</Tab>
+        <Tab _focus={{}} fontSize={["0.6rem", "1rem"]}>Mobile</Tab>
+        <Tab _focus={{}} fontSize={["0.7rem", "1rem"]}>{lenguage ? "Artigos" : "Articles"}</Tab>
       </TabList>
 
       <TabPanels mt="1rem">

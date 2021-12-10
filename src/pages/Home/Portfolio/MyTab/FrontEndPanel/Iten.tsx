@@ -83,7 +83,7 @@ export const Iten: React.FC<ProductProps> = ({product}) => {
         <ModalContent
           bg="purple.800"
         >
-          <ModalHeader>{product.name}</ModalHeader>
+          <ModalHeader>{lenguage ? "Nome:" : "Name:"} {product.name}</ModalHeader>
           <ModalCloseButton _focus={{}}/>
 
           <ModalBody>
@@ -94,34 +94,30 @@ export const Iten: React.FC<ProductProps> = ({product}) => {
                   alt={product.name}
                 />
               </Flex>
-              
 
-              <Stack>
-                <Heading as="h3" size="md">
-                  {lenguage ? "Nome" : "Name:"}
-                </Heading>
-                <Text>
-                  {product.name}
-                </Text>
-                <Divider/>
-
-                <Heading as="h3" size="md">
-                  {lenguage ? "Descrição:" : "Description:"}
-                </Heading>
-                <Text>
-                  {product.description}
-                </Text>
-                <Divider/>
-
-                <Heading as="h3" size="md">
-                  {lenguage ? "Ferramentas:" : "Tools:"}
-                </Heading>
-
-                {product.tools.map(item => (
-                  <Text p="0.25rem" borderRadius="0.25rem" bg="purple.600">
-                    {item}
+              <Stack spacing="4">
+                <Flex direction="column">
+                  <Heading as="h3" size="md">
+                    {lenguage ? "Descrição:" : "Description:"}
+                  </Heading>
+                  <Text mt="1">
+                    {product.description}
                   </Text>
-                ))}
+                </Flex>
+
+                <Flex direction="column">
+                  <Heading as="h3" size="md">
+                    {lenguage ? "Ferramentas:" : "Tools:"}
+                  </Heading>
+
+                  <Stack spacing="1" mt="1">
+                    {product.tools.map(item => (
+                      <Text p="0.25rem" borderRadius="0.25rem" bg="purple.600" key={item}>
+                        {item}
+                      </Text>
+                    ))}
+                  </Stack>
+                </Flex>
               </Stack>
             </SimpleGrid>
           </ModalBody>

@@ -29,12 +29,11 @@ export const ContactMe: React.FC = () => {
       .then(() => {
         toast.success(lenguage ? 'Email enviado com sucesso' : 'Email send success.')
         setLoading(false);
+        reset();
       }, () => {
         toast.error(lenguage ? 'Ocorreu um erro' : 'Email send error.')
         setLoading(false);
     });
-
-    reset();
   }
 
   return (

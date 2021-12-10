@@ -11,6 +11,7 @@ import {
   Heading,
   Stack,
   Button,  
+  Center,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -76,7 +77,7 @@ export const Iten: React.FC<ProductProps> = ({product}) => {
       </Flex>
     </Flex>
     
-      <Modal isOpen={isOpen} onClose={onClose} size="3xl" scrollBehavior="inside">
+      <Modal isOpen={isOpen} isCentered onClose={onClose} size="3xl" scrollBehavior="inside">
         <ModalOverlay />
           
         <ModalContent
@@ -87,12 +88,14 @@ export const Iten: React.FC<ProductProps> = ({product}) => {
 
           <ModalBody>
             <SimpleGrid minChildWidth="20rem">
-              <Flex w="100%" maxW="20rem" justify="center" align="center">
+              <Center w="100%" p="2rem">
                 <Img 
+                  w="100%"
+                  maxW="15rem"
                   src={product.image}
                   alt={product.name}
                 />
-              </Flex>
+              </Center>
 
               <Stack spacing="4">
                 <Flex direction="column">

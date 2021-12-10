@@ -8,7 +8,6 @@ import {
   SimpleGrid,
   Text,
   Icon,
-  Divider,
   Heading,
   Stack,
   Button,  

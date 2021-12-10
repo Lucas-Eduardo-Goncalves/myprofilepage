@@ -22,16 +22,15 @@ export const Home: React.FC = () => {
 
       <Stack
         as="main"
-        p={!isLargerThanMd ? "1rem" : "0 1rem 1rem 5rem"} 
+        p={!isLargerThanMd ? "1rem 1rem 5rem 1rem" : "0 1rem 1rem 5rem"} 
         spacing="5rem"
       > 
         <Portfolio  />
         <About />
         <MyRepo />
         <ContactMe />
+        <Footer />
       </Stack>
-
-      <Footer />
     </>
   );
 };

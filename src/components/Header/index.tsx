@@ -18,6 +18,8 @@ export const Header: React.FC = () => {
       as="header"
       h="100vh"
       align="center"
+      position="relative"
+      overflow="hidden"
       p={!isLargerThanMd ? "1rem" : "0 1rem 1rem 5rem"} 
     >
       <Flex 

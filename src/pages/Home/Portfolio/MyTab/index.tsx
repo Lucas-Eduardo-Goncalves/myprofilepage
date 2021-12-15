@@ -24,7 +24,11 @@ interface DataArticleProps {
 }
 
 export const MyTab: React.FC = () => {
-  const { data: DataProjects } = useCollection<DataProjectProps>('projects', {listen: true});
+  const { data: DataProjects } = useCollection<DataProjectProps>('projects', {    
+    listen: true, 
+    orderBy: ['published_at', 'desc'],
+  });
+
   const { data: DataArticle } = useCollection<DataArticleProps>('articles', {listen: true});
   const { lenguage } = useLenguage();
 

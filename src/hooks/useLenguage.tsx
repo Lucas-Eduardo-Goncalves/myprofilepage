@@ -11,19 +11,10 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export const LenguageProvider: React.FC = ({ children }) => {
 
-  const [isLenguage, setIsLenguage] = useState(() => {
-    const lenguage = localStorage.getItem('LucasGoncalvesPage:lenguage');
-
-    if(lenguage) {
-      return Boolean(lenguage);
-    }
-
-    return true;
-  });
+  const [isLenguage, setIsLenguage] = useState(false);
 
   function setLenguage(data: boolean) {
     setIsLenguage(data);
-    localStorage.setItem('LucasGoncalvesPage:lenguage', String(data));
   }
 
   return(
@@ -38,7 +29,7 @@ export const LenguageProvider: React.FC = ({ children }) => {
         align="center"
       >
         <Text mr="1rem">
-          Inglês
+          English
         </Text>
 
         <Switch 

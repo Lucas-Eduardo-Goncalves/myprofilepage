@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link as LinkRouterDom } from 'react-router-dom';
 
 import {
   SimpleGrid,
@@ -35,7 +36,7 @@ export const FrontEndPanel: React.FC<FrontEndPanelData> = ({data}) => {
       </SimpleGrid>
 
       <Flex justify="center" mt="1rem">
-        <Link>Veja mais dos meus projetos FrontEnd</Link>
+        <Link as={LinkRouterDom} to="allprojects">Veja mais dos meus projetos FrontEnd</Link>
       </Flex>
     </>
   );

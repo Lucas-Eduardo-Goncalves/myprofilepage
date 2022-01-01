@@ -7,6 +7,7 @@ import { ArticlePanel } from './ArticlePanel';
 
 import { useCollection } from '@nandorojo/swr-firestore';
 import { useLenguage } from '../../../../hooks/useLenguage';
+import { CertificationPanel } from './CertificationPanel';
 
 interface DataProjectProps {
   description: string;
@@ -23,6 +24,12 @@ interface DataArticleProps {
   repoLink: string;
 }
 
+interface DataCertificationProps {
+  name: string;
+  sent: string;
+  image: string;
+}
+
 export const MyTab: React.FC = () => {
   const { data: DataProjects } = useCollection<DataProjectProps>('projects', {    
     listen: true, 
@@ -30,14 +37,16 @@ export const MyTab: React.FC = () => {
   });
 
   const { data: DataArticle } = useCollection<DataArticleProps>('articles', {listen: true});
+
+  const { data: DataCertifications } =  useCollection<DataCertificationProps>('certifications', {listen: true});
+
   const { lenguage } = useLenguage();
 
   return (
     <Tabs colorScheme="purple" variant='soft-rounded'>
       <TabList mt="1rem">
         <Tab _focus={{}} fontSize={["0.7rem", "1rem"]}>Frontend</Tab>
-        <Tab _focus={{}} fontSize={["0.7rem", "1rem"]}>Backend</Tab>
-        <Tab _focus={{}} fontSize={["0.6rem", "1rem"]}>Mobile</Tab>
+        <Tab _focus={{}} fontSize={["0.7rem", "1rem"]}>{lenguage ? "Certificados" : "Certificate"}</Tab>
         <Tab _focus={{}} fontSize={["0.7rem", "1rem"]}>{lenguage ? "Artigos" : "Articles"}</Tab>
       </TabList>
 
@@ -47,19 +56,7 @@ export const MyTab: React.FC = () => {
         </TabPanel>
 
         <TabPanel p="0">
-          <Center
-            h="50vh"
-          >
-            Nada até o momento
-          </Center>
-        </TabPanel>
-
-        <TabPanel p="0">
-          <Center
-            h="50vh"
-          >
-            Nada até o momento
-          </Center>
+          {DataCertifications && <CertificationPanel data={DataCertifications} />}
         </TabPanel>
 
         <TabPanel p="0">

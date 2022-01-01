@@ -1,7 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { SideBar } from './SideBarAdmin';
 import { Main } from './Main';
 
 import { Center, Box, IconButton, Icon } from '@chakra-ui/react';
@@ -16,13 +15,7 @@ export const Logged: React.FC = () => {
   const history = useHistory();
 
   if(user && user.id === "U2ve8Wl8ZSUf5hCP3jvHNAvgoQt2" ) {
-    return (
-      <>
-        <SideBar user={user}/>
-
-        <Main />
-      </>
-    )
+    return <Main />
   } else {
     return (
       <>

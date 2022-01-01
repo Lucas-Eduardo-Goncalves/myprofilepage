@@ -6,7 +6,7 @@ interface ContainerProps extends CenterProps {
   bgGradient: string;
 }
 
-export const Block: React.FC<ContainerProps> = ({bgGradient, ...rest}) => {
+export const Block: React.FC<ContainerProps> = ({ bgGradient , ...rest}) => {
 
   return (
     <Center

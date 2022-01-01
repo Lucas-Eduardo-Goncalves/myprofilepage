@@ -7,6 +7,7 @@ interface dataProps {
   name: string;
   sent: string;
   image: string;
+  id: string;
 }
 
 interface props {
@@ -24,6 +25,7 @@ export const CertificationPanel: React.FC<props> = ({ data }) => {
     >
       {data?.map(project => (
         <Flex 
+          key={project.id}
           direction="column"
           align="center"
           p="0.5rem"

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Tabs, TabList, Tab, TabPanels, TabPanel, Center } from '@chakra-ui/react';
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@chakra-ui/react';
 
 import { FrontEndPanel } from './FrontEndPanel';
 import { ArticlePanel } from './ArticlePanel';

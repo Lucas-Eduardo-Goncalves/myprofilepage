@@ -1,20 +1,16 @@
-import React from 'react';
-
-import { Flex, useBreakpointValue } from '@chakra-ui/react';
-
 import { LinkButton } from './LinkButton';
 
 import { ImHome } from 'react-icons/im';
-import { FaCode, FaQuestionCircle } from 'react-icons/fa';
 import { GoRepoForked } from 'react-icons/go';
 import { MdOutlineContactMail } from 'react-icons/md';
+import { FaCode, FaQuestionCircle } from 'react-icons/fa';
+
 import { useLenguage } from '../../hooks/useLenguage';
+import { Flex, useBreakpointValue } from '@chakra-ui/react';
 
-export const SideBar: React.FC = () => {
-
-  const isLargerThanMd = useBreakpointValue({ base: false, md: true })
-
+export const SideBar = () => {
   const { lenguage } = useLenguage();
+  const isLargerThanMd = useBreakpointValue({ base: false, md: true })
 
   if(isLargerThanMd) {
     return (
@@ -74,11 +70,9 @@ export const SideBar: React.FC = () => {
         bottom="0"
         align="center"
         justify="center"
-        
         bg="purple.800"
         w="100vw"
         h="4rem"
-        transition="width 0.3s"
         zIndex="2"
       >
         <LinkButton
@@ -107,5 +101,5 @@ export const SideBar: React.FC = () => {
         />
       </Flex>
     );
-  }
+  };
 };

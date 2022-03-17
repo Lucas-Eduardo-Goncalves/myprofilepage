@@ -3,7 +3,7 @@ import "firebase/auth";
 import "firebase/firestore";
 import "firebase/storage";
 
-export const firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyCu14641GK7z4Eypj6w8Q5CrYIQfW2e0So",
   authDomain: "lucasgoncalvespage.firebaseapp.com",
   projectId: "lucasgoncalvespage",
@@ -14,7 +14,8 @@ export const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
   
-export const firestore = firebase.firestore();
-export const storage = firebase.storage();
-export const auth = firebase.auth();
-export { firebase };
+const firestore = firebase.firestore();
+const storage = firebase.storage();
+const auth = firebase.auth();
+
+export { firebase, firebaseConfig, firestore, storage, auth };

@@ -19,4 +19,4 @@ export default class Fuego {
     this.functions = firebase.functions;
     this.storage = firebase.storage;
   }
-}
+};

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import emailjs from 'emailjs-com';
 import toast, { Toaster } from 'react-hot-toast';
@@ -15,33 +15,16 @@ interface InputProps  {
   email: string
   subject: string;
   message: string;
-}
+};
 
-export const ContactMe: React.FC = () => {
-
-  
-
-  const float = keyframes`
-    0% {
-      transform: translatey(0px);
-    }
-    50% {
-      transform: translatey(30px);
-    }
-    100% {
-      transform: translatey(0px);
-    }
-  `;
-  
-  const animation = `${float} ease-in-out infinite`;
-
+export const ContactMe = () => {
   const [loading, setLoading] = useState(false);
 
   const { register, formState: { errors }, handleSubmit, reset } = useForm<InputProps>();
 
   const { lenguage } = useLenguage();
 
-  const submitForm: SubmitHandler<InputProps> = data => {
+  const submitForm: SubmitHandler<InputProps> = () => {
     setLoading(true);
 
     emailjs.sendForm('service_9ijvrcy', 'template_ruev0ki', '#contact', 'user_R903exDTQcVm3KfXACqiK')
@@ -56,23 +39,24 @@ export const ContactMe: React.FC = () => {
   }
 
   return (
-      <Flex direction="column">
-        <Heading 
-          color="purple.300"
-          fontSize={['2rem' , '3rem']}
-        >
-          {lenguage ? "Me contate" : "Contact me"}
-        </Heading>
+    <Flex direction="column">
+      <Toaster />
 
-        <Text
-          maxW="50rem"
-          mt="1rem"
-          mb="1rem"
-          fontSize={["0.8rem", "1rem"]}
-        >
-          {lenguage ? "Me contate pelo E-mail" : "Contact me from e-mail."}
-        </Text>
-     
+      <Heading 
+        color="purple.300"
+        fontSize={['2rem' , '3rem']}
+      >
+        {lenguage ? "Me contate" : "Contact me"}
+      </Heading>
+
+      <Text
+        maxW="50rem"
+        mt="1rem"
+        mb="1rem"
+        fontSize={["0.8rem", "1rem"]}
+      >
+        {lenguage ? "Me contate pelo E-mail" : "Contact me from e-mail."}
+      </Text>
 
       <SimpleGrid minChildWidth="20rem" spacing="8">
         <Flex
@@ -81,7 +65,7 @@ export const ContactMe: React.FC = () => {
           as="form"
           onSubmit={handleSubmit(submitForm)}
         >
-          <Toaster />
+          
           <Input 
             placeholder={lenguage ? "Nome:" : "Name:"}
             border="none"
@@ -124,9 +108,7 @@ export const ContactMe: React.FC = () => {
           </Button> 
         </Flex>
 
-        <Center
-          animation={animation}
-        >
+        <Center>
           <Img
             maxW="20rem"
             w="100%"

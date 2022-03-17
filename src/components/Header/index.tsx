@@ -1,15 +1,13 @@
-import React from 'react';
-
-import { Flex, useBreakpointValue } from '@chakra-ui/react';
+import { useLenguage } from '../../hooks/useLenguage';
 
 import { Title } from './Title';
 import { Headline } from './Headline';
 import { ContactButton } from './ContactButton';
-import { AreaBlock } from './AreaBlock';
-import { useLenguage } from '../../hooks/useLenguage';
+import { BlockArea } from './BlockArea';
 
-export const Header: React.FC = () => {
+import { Flex, useBreakpointValue } from '@chakra-ui/react';
 
+export const Header = () => {
   const { lenguage } = useLenguage();
   const isLargerThanMd = useBreakpointValue({ base: false, md: true })
 
@@ -22,21 +20,16 @@ export const Header: React.FC = () => {
       overflow="hidden"
       p={!isLargerThanMd ? "1rem" : "0 1rem 1rem 5rem"} 
     >
-      <Flex 
-        flexDir="column"
-        id="home"
-      >
-
+      <Flex direction="column" id="home">
         <Title name={lenguage ? "Olá," : "Hey,"}/>
         <Title name={lenguage ? "Eu sou o Lucas," : "I'm Lucas,"}/>
         <Title name={lenguage ? "Desenvolvedor web," : "webdeveloper,"}/>
-
+        
         <Headline />
-
         <ContactButton />
       </Flex>
 
-      <AreaBlock />
+      <BlockArea />
     </Flex>
   );
-}
+};

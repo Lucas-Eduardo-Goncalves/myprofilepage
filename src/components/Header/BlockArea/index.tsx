@@ -1,11 +1,7 @@
-import React from 'react';
-
+import { Block } from './Block';
 import { Flex, useBreakpointValue } from '@chakra-ui/react';
 
-import { Block } from './Block';
-
-export const AreaBlock: React.FC = () => {
-  
+export const BlockArea = () => {
   const isLargerThanMd = useBreakpointValue({ base: false, lg: true })
 
   if (isLargerThanMd) {
@@ -36,8 +32,8 @@ export const AreaBlock: React.FC = () => {
           bgGradient="linear(to-t, #7209b7, #4cc9f0)"
         />
       </Flex>
-    )
-  }
+    );
+  };
 
   return (
     <Flex

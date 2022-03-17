@@ -1,17 +1,14 @@
-import React from 'react';
-
-import { Button } from '@chakra-ui/react';
 import { Link } from "react-scroll";
 import { useLenguage } from '../../hooks/useLenguage';
+import { Button } from '@chakra-ui/react';
 
-export const ContactButton: React.FC = () => {
-
+export const ContactButton = () => {
   const { lenguage } = useLenguage();
 
   return (
     <Button
-      bg="purple.300"
       as={Link}
+      bg="purple.300"
       w={["10rem", "15rem"]}
       fontSize={["0.8rem", "1rem"]}
       mt="1.5rem"

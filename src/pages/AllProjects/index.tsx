@@ -1,10 +1,10 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
-import { SimpleGrid, Icon, IconButton } from '@chakra-ui/react';
+import { Iten } from './Iten';
 import { GoChevronLeft } from 'react-icons/go';
 import { useCollection } from '@nandorojo/swr-firestore';
-import { Iten } from './Iten';
+import { SimpleGrid, Icon, IconButton } from '@chakra-ui/react';
 
 interface DataProjectProps {
   description: string;
@@ -13,7 +13,7 @@ interface DataProjectProps {
   repoLink: string;
   projectLink: string;
   tools: string[];
-}
+};
 
 export const AllProjects: React.FC = () => {
   const history = useHistory();
@@ -34,10 +34,7 @@ export const AllProjects: React.FC = () => {
         _focus={{}}
         onClick={() => history.push('/')}
       >
-        <Icon 
-          as={GoChevronLeft} 
-          fontSize="1.75rem" 
-        />
+        <Icon as={GoChevronLeft} fontSize="1.75rem" />
       </IconButton>
 
       <SimpleGrid

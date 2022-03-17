@@ -11,22 +11,18 @@ import { Routes } from './routes';
 
 import { theme } from './styles/GlobalStyles';
 import { LenguageProvider } from './hooks/useLenguage';
-import { AuthContextProvider } from './hooks/useAuth';
 
 export const App: React.FC = () => {
-
   const fuego = new Fuego(firebaseConfig);
 
   return (
     <FuegoProvider fuego={fuego}>
       <ChakraProvider theme={theme}>
         <DancingLines />
-    
-        <AuthContextProvider>
-          <LenguageProvider>
-            <Routes />
-          </LenguageProvider>
-        </AuthContextProvider>
+        
+        <LenguageProvider>
+          <Routes />
+        </LenguageProvider>
       </ChakraProvider>
     </FuegoProvider>
   );

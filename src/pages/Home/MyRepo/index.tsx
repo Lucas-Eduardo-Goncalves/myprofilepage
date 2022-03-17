@@ -23,11 +23,13 @@ export const MyRepo: React.FC = () => {
       >
         <Img 
           w="100%"
+          maxH="15rem"
           src="https://github-readme-stats.vercel.app/api?username=Lucas-Eduardo-Goncalves&show_icons=true&theme=jolly&include_all_commits=true&count_private=true"
         />
 
         <Img 
           w="100%"
+          maxH="15rem"
           src="https://github-readme-stats.vercel.app/api/top-langs/?username=Lucas-Eduardo-Goncalves&layout=compact&langs_count=7&theme=jolly"
         />
       </SimpleGrid>

@@ -1,25 +1,19 @@
 import React, { createContext, useState, useContext } from 'react';
-
 import { Flex, Text, Switch } from '@chakra-ui/react';
 
-interface AuthContextData {
+interface lenguageContextData {
   lenguage: boolean;
   setLenguage: (data: boolean) => void;
-}
+};
 
-const AuthContext = createContext<AuthContextData>({} as AuthContextData);
+const LenguageContext = createContext<lenguageContextData>({} as lenguageContextData);
 
 export const LenguageProvider: React.FC = ({ children }) => {
-
   const [isLenguage, setIsLenguage] = useState(false);
-
-  function setLenguage(data: boolean) {
-    setIsLenguage(data);
-  }
+  const setLenguage = (data: boolean) => setIsLenguage(data);
 
   return(
-    <AuthContext.Provider value={{ lenguage: isLenguage, setLenguage}}>
-
+    <LenguageContext.Provider value={{ lenguage: isLenguage, setLenguage}}>
       <Flex
         position="fixed"
         top="2"
@@ -44,16 +38,16 @@ export const LenguageProvider: React.FC = ({ children }) => {
       </Flex>
 
       {children}
-    </AuthContext.Provider>
+    </LenguageContext.Provider>
   );
 };
 
-export function useLenguage(): AuthContextData {
-  const context = useContext(AuthContext)
+export function useLenguage(): lenguageContextData {
+  const context = useContext(LenguageContext)
 
   if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    throw new Error('useLenguage must be used with in an LenguageProvider');
   };
 
   return context;
-}
+};

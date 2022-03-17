@@ -1,13 +1,11 @@
-import React from 'react';
+import { useLenguage } from '../../../hooks/useLenguage';
+
+import { Footer } from './Footer';
+import { MyDescription } from './MyDescription';
 
 import { Flex, Heading } from '@chakra-ui/react';
 
-import { Footer } from './Footer';
-import { PText } from './PText';
-import { useLenguage } from '../../../hooks/useLenguage';
-
-export const About: React.FC = () => {
-
+export const About = () => {
   const { lenguage } = useLenguage();
 
   return (
@@ -16,14 +14,11 @@ export const About: React.FC = () => {
       direction="column"
       maxW="50rem"
     >
-      <Heading 
-        color="purple.300"
-        fontSize={['2rem' , '3rem']}
-      >
+      <Heading color="purple.300" fontSize={['2rem' , '3rem']}>
         {lenguage ? "Sobre mim" : "About"}
       </Heading>
 
-      <PText />
+      <MyDescription />
       <Footer />
     </Flex>
   );

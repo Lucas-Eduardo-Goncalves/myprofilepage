@@ -1,10 +1,7 @@
-import React from 'react';
-
 import { Text } from '@chakra-ui/react';
 import { useLenguage } from '../../../hooks/useLenguage';
 
-export const PText: React.FC = () => {
-  
+export const MyDescription = () => {
   const { lenguage } = useLenguage();
   
   return (

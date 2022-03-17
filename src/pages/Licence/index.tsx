@@ -26,7 +26,7 @@ export const Licence: React.FC = () => {
         <Icon as={GoChevronLeft} fontSize="1.75rem" />
       </IconButton>
 
-      <Center h="100vh" w="100vw">
+      <Center w="100%" h="100%" p="4rem 1rem 1rem 1rem">
         {lenguage ? <LicenceTextPT/> : <LicenceTextEN/>}
       </Center>
     </>

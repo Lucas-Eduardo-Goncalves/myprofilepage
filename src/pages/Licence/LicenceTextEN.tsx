@@ -6,7 +6,7 @@ export const LicenceTextEN = () => (
     bg="purple.600" 
     p="1rem" 
     borderRadius="1rem" 
-    maxW="60vw"
+    maxW="55rem"
   >
     <Text mb="0.5rem">
       MIT License

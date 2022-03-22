@@ -7,7 +7,7 @@ import MyPhotoLogo from '../../../assets/MyPhotoLogo.svg';
 
 import { useForm, SubmitHandler } from 'react-hook-form';
 
-import { Flex, Heading, Input, Text, Textarea, Button, SimpleGrid, Img, Center,keyframes } from '@chakra-ui/react';
+import { Flex, Heading, Input, Text, Textarea, Button, SimpleGrid, Img, Center } from '@chakra-ui/react';
 import { useLenguage } from '../../../hooks/useLenguage';
 
 interface InputProps  {
